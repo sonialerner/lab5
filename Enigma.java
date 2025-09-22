@@ -21,12 +21,28 @@ public class Enigma{
 
     public String decrypt(String message){        
         //TODO
+
+        // locate index of outer char
+
+        // locate char at that same index on the middle rotor
+
+        // locate index of that char on outer rotor
+
+        // locate char at that index on inner rotor
+        
     }
 
 
     
     public String encrypt(String message){
         //TODO
+        // locate index of letter on inner rotor
+
+        // locate char of same index on outer rotor
+
+        // locate index of that char on middle rotor
+
+        // locate char of that index on outer rotor
     }
 
     
