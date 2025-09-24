@@ -59,15 +59,26 @@ public class Enigma{
 
 
     
-    public String encrypt(String message){
-        //TODO
-        // locate index of letter on inner rotor
+    public String encrypt(String message) {
 
-        // locate char of same index on outer rotor
+        String encryptedMessage = "" ;
+        for(int i = 0; i <= message.length(); i++) {
+            // locate index of letter on inner rotor
+            int index1 = rotors[0].indexOf(message.charAt(i)) ;
 
-        // locate index of that char on middle rotor
+            // locate char of same index on outer rotor
+            char outer = rotors[2].charAt(index1) ;
 
-        // locate char of that index on outer rotor
+            // locate index of that char on middle rotor
+            int index2 = rotors[1].indexOf(outer) ;
+
+            // locate char of that index on outer rotor  
+            char secondChar = rotors[2].charAt(index2) ;
+            
+            encryptedMessage = encryptedMessage + secondChar ;
+        }
+
+        return encryptedMessage ;
     }
 
     
