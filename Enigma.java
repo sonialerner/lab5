@@ -9,7 +9,7 @@ public class Enigma{
 
     private Rotor rotors[];
         
-    public Enigma(int id1, int id2, int id3, String start){
+    public Enigma(int id1, int id2, int id3, String start) {
 
         rotors = new Rotor[3];
         rotors[0] = new Rotor(rotorInit[id1-1], start.charAt(0));
@@ -19,17 +19,42 @@ public class Enigma{
     }
 
 
-    public String decrypt(String message){        
-        //TODO
+    public String decrypt(String message) {
 
-        // locate index of outer char
+        String decryptedMessage = "" ;
 
-        // locate char at that same index on the middle rotor
+        for(int i = 0; i < message.length(); i++) {
 
-        // locate index of that char on outer rotor
+            // locate index of outer char
+            int index1 = rotors[2].indexOf(message.charAt(i)) ;
 
-        // locate char at that index on inner rotor
-        
+            // locate char at that same index on the middle rotor
+            char middle = rotors[1].charAt(index1) ;
+
+            // locate index of that char on outer rotor
+            int index2 = rotors[2].indexOf(middle) ;
+
+            // locate char at that index on inner rotor  
+            char inner = rotors[0].charAt(index2) ;
+            
+            // add new char to decryptedMessage
+            decryptedMessage = decryptedMessage + inner ;
+
+            // rotate rotor:
+
+            // initialize rotator to inner rotor
+            int j = 0 ;
+
+            // change rotor to be rotated if needed
+            if(i <= 27)
+                j = 1 ;          
+            else if(i <= 54)
+                j = 2 ;
+
+            rotors[j].rotate() ; 
+        }
+
+        return decryptedMessage ;
     }
 
 

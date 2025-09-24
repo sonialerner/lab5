@@ -4,7 +4,7 @@ public class Rotor {
     private String rotorValues;
     private char startChar;
         
-    public Rotor(String v, char c){
+    public Rotor(String v, char c) {
         this.rotorValues = new String(v);
         this.startChar = c;
         
@@ -12,23 +12,27 @@ public class Rotor {
             
     }
     
-    public boolean rotate(){
-        //TODO
+    public boolean rotate() {
+
+        // increment start char
+        this.startChar = charAt(this.indexOf(startChar) + 1) ;
                
-        return false ;
-    }
-    
-
-    public int indexOf(char c){
-        //TODO
-
-        return 0 ;
+        return true ;
     }
 
-    public char charAt(int idx){
-        //TODO
+    public int indexOf(char c) {
 
-        return 'a' ;
+        for(int i = 0 ; i <= 27 ; i++) {
+            if(rotorValues.charAt(i) == c) {
+                return i ;
+            }
+        }
+
+        return -1 ;
+    }
+
+    public char charAt(int idx) {
+        return this.charAt(idx) ;
     }
 }
     
